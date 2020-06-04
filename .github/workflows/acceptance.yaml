@@ -1,9 +1,13 @@
 name: acceptance
 
-on:
-  push:
-    branches:
-      - 'master'
+# TODO: Come back to this file to fix random notes
+
+#on:
+#  push:
+#    branches:
+#      - 'master'
+
+on: [pull_request]
 
 jobs:
   LitmusAcceptance:
@@ -18,9 +22,11 @@ jobs:
 
     - name: Litmus Parallel Acceptance
       run: |
+        echo WORKING
         gem --version
-        gem install bundler
-        bundler -v
-        bundle install --jobs 4 --retry 2 --path .bundle/gems
-        bundle exec rake litmus:provision_list[$PROVISION_LIST]
-        bundle exec rake litmus:acceptance:parallel
+        #        gem --version
+        #        gem install bundler
+        #        bundler -v
+        #        bundle install --jobs 4 --retry 2 --path .bundle/gems
+        #        bundle exec rake litmus:provision_list[$PROVISION_LIST]
+        #        bundle exec rake litmus:acceptance:parallel
